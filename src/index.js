@@ -6,12 +6,14 @@
 require('dotenv').config();
 
 const express = require('express');
+const cors = require('cors');
 const taxRoutes = require('./routes/taxRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
+app.use(cors({ origin: '*' }));
 app.use(express.json());
 
 // Request logging middleware
